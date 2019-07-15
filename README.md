@@ -79,6 +79,6 @@ $ curl -sS -X GET -H "Authorization: ${idToken}"  "${ENDPOINT}/hello" | jq .
     "body": null,
     "isBase64Encoded": false
   },
-  "cognito_id": "ap-northeast-1:2ac6c5a4-5f4d-4bb4-83c3-123456789012"
+  "identity_id": "ap-northeast-1:2ac6c5a4-5f4d-4bb4-83c3-123456789012"
 }
 ```

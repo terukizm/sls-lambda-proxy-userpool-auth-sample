@@ -7,9 +7,6 @@ COGNITO_USER_POOL_ARN = os.environ.get('COGNITO_USER_POOL_ARN')
 COGNITO_IDENTITY_POOL_ID = os.environ.get('COGNITO_IDENTITY_POOL_ID')
 
 def _get_identity_id_from_cognito_idToken(idToken):
-    """
-    cognitoIdentityIdを取得
-    """
     pattern = 'arn:aws:cognito-idp:(?P<aws_region>.*):(?P<aws_account_id>[0-9]{12}):userpool/(?P<user_pool_id>.*)'
     m = re.match(pattern, COGNITO_USER_POOL_ARN)
 
@@ -35,7 +32,7 @@ def hello(event, context):
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
         "input": event,
-        "cognito_id": _get_identity_id_from_cognito_idToken(idToken)
+        "identity_id": _get_identity_id_from_cognito_idToken(idToken)
     }
 
     response = {
